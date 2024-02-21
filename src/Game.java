@@ -10,7 +10,7 @@
  *
  * @author Maria Jump
  * @version 2015.02.01
- *
+ * @author bator
  * Used with permission from Dr. Maria Jump at Northeastern University
  */
 
