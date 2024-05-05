@@ -109,50 +109,139 @@ public class World {
 	 */
 	private void createRooms() {
 		// Creating all the rooms.
-		Room outside = new Room("Outside", "outside in the center of the King's College campus.");
-		Room holyCross = new Room("Holy Cross", "at one of two main dormitories on campus.");
-		Room essef = new Room("Essef", "at the other main dormitory on campus.");
-		Room campusCenter = new Room("Campus Center", "in the center of student activities on campus.");
-		Room admin = new Room("Admin", "in the oldest building on campus and home to the computer science department.");
-		Room slivaOffice = new Room("Sliva's Office", "in Dr Sliva's office.");
-		Room janoskiOffice = new Room("Janoski's Office", "in Dr Janoski's office.");
-		Room lab = new Room("Computer Lab", "in the Computer Science and Math computing lab.");
-		Room classroom = new Room("Classroom", "in the classroom where the computer science classes are taught.");
-
+		Room ship = new Room("Ship", "Metal amphious vechile which houses the crew who took you captive");
+		Room northIsland = new Room("The North Island", "Island at the far North end of the sea.");
+		Room treasureIsland = new Room("Treasure Island", "Island where the most believe where the Treasure is...");
+		Room forgottenIsland = new Room("Forgotten Island", "An Island erased in all name and location...");
+		Room boat = new Room("Boat", "Small amphious vechile that has 8 days worth of gasoline");
+		Room bridge = new Room("Bridge", "Command center of the ship... check for valueables");
+		Room bridgeDeck = new Room("Desk in Bridge", "A... Novel?");
+		Room poopDeck = new Room("Poop Deck", "Top side of the ship, looking right you see a boat on your left is the bridge!");
+		Room library = new Room("Library", "A massive room filled with shelves filled with books... you noticed to the right a section called: Anceint cities ");
+		Room ancientCities = new Room("Book Aisle", "You look up and down the shelves to find anything that can help, then you see it just ahead..");
+		Room medBay = new Room("Med Bay", "A very bright room with cabinets to the left and right of you, filled with supplies");
+		Room crewQuarters = new Room("Crew Quarters", "A tightly back room filled with bunks and cabinets left, right and center.");
+		Room boilerRoom = new Room("Boiler Room", "HOT VERY HOT... you noticied a wrench, you grab it then book it out");
+		Room lockedDoor = new Room("Locked Door", "Its locked...Maybe find something to break the handle.");
+		Room integrationRoom = new Room("Integration Room", "You wake up in a haze loosely bounded, try moving around...");
+		Room beach = new Room("Beach", "Sandy area good place to make camp.");
+		Room jungle = new Room("Jungle", "A Dense woody area where you hearing rushing water up north.");
+		Room river = new Room("River", "Rushning clean drinking water... resupply hear.");
+		Room ancientCity = new Room("Ancient City", "A city left by its people, but you see path leading north through the trees.");
+		Room lake = new Room("Lake", "Great body of water, as you look at it you noticied a fish jump out of water.");
+		Room temple = new Room("Temple", "You exit out of the jungle, there in front of you is a massive temple... you enter");
+		Room insideAlterRoom = new Room("Alter Room", "You walk through cobwebs and see a desk with a odd shape wrapped in cloth on it.");
+		Room cave = new Room("Cave", "Dark damp space where bats are flying over you.");
+		Room ancientHome = new Room("Ancient Home", "Walking through the desert you see the top of a gray object, you jump in and you land in an old home.");
+		Room pyrimad = new Room("Pyrimad", "A giant structure made of coarse sandstone towering 100 feet high.");
+		Room underGround = new Room("Underground Puzzle", "A room left untouch, it has three alter with plates...");
+		Room burialSite = new Room("Burial site", "A large mass grave with stone soilders guarding the dead. Ahead you see a tomb.");
+		Room treasure = new Room("Tomb", "You find the skull of the great emporer, leave before its too late.");
+		Room waterFall = new Room("Water Fall", "Roaring water coming from the top of a cliff");
+		Room tigerDen = new Room("Tiger Den", "Damp cave scattered with bones with growling in it.");
+		Room undergroundTemple = new Room("Underground Temple", "A Mssive stone structure build underground.");
+		Room undergroundRoom = new Room("Underground Room", "The room inside of the temple which leads to another room.");
+		Room ancientRuins = new Room("Ancient Ruins", "Ruins of an ancient civilization, looking all around you see structure all around you.");
+		Room secretRoom = new Room("Secret Room", "A secert room found within the walls of one of the structures.");
+		Room beachTI = new Room("Beach Treasure Island", "beach for treasure island.");
+		Room beachFI = new Room("Beach Forgotten Island", "beach for treasure island.");
+		
+		
+		
 		// Adding all the rooms to the world.
-		this.addRoom(outside);
-		this.addRoom(holyCross);
-		this.addRoom(essef);
-		this.addRoom(campusCenter);
-		this.addRoom(admin);
-		this.addRoom(slivaOffice);
-		this.addRoom(janoskiOffice);
-		this.addRoom(lab);
-		this.addRoom(classroom);
+		this.addRoom(ship);
+		this.addRoom(northIsland);
+		this.addRoom(treasureIsland);
+		this.addRoom(forgottenIsland);
+		this.addRoom(boat);
+		this.addRoom(bridge);
+		this.addRoom(bridgeDeck);
+		this.addRoom(poopDeck);
+		this.addRoom(library);
+		this.addRoom(ancientCities);
+		this.addRoom(medBay);
+		this.addRoom(crewQuarters);
+		this.addRoom(boilerRoom);
+		this.addRoom(lockedDoor);
+		this.addRoom(integrationRoom);
+		this.addRoom(beach);
+		this.addRoom(jungle);
+		this.addRoom(river);
+		this.addRoom(ancientCity);
+		this.addRoom(lake);
+		this.addRoom(temple);
+		this.addRoom(insideAlterRoom);
+		this.addRoom(cave);
+		this.addRoom(ancientHome);
+		this.addRoom(underGround);
+		this.addRoom(burialSite);
+		this.addRoom(treasure);
+		this.addRoom(waterFall);
+		this.addRoom(tigerDen);
+		this.addRoom(undergroundTemple);
+		this.addRoom(undergroundRoom);
+		this.addRoom(ancientRuins);
+		this.addRoom(secretRoom);
+		this.addRoom(beachFI);
+		this.addRoom(beachTI);
+		
 
 		// Creating all the doors between the rooms.
-		this.createSouthDoor(essef, outside);
-		this.createNorthDoor(outside, essef);
+		//The code written is the route between the islands no ship because too much. 
+		//As well No north island because too confusing
+		this.createWestDoor(ship, beach);
+		this.createEastDoor(beach, ship);
 
-		this.createEastDoor(campusCenter, outside);
-		this.createWestDoor(outside, campusCenter);
+		this.createSouthDoor(ship, beach);
+		this.createNorthDoor(beach, ship);
 
-		this.createEastDoor(outside, holyCross);
-		this.createWestDoor(holyCross, outside);
+		this.createSouthDoor(beach, beachTI);
+		this.createNorthDoor(beachTI, beach);
 
-		this.createSouthDoor(outside, admin);
-		this.createNorthDoor(admin, outside);
+		this.createNorthDoor(beachFI, beachTI);
+		this.createSouthDoor(beachTI, beachFI);
 
-		this.createEastDoor(admin, lab);
-		this.createWestDoor(lab, admin);
+		this.createEastDoor(ancientHome, beachFI);
+		this.createWestDoor(beachFI, ancientHome);
 
-		this.createSouthDoor(admin, janoskiOffice);
-		this.createNorthDoor(janoskiOffice, admin);
+		this.createNorthDoor(ancientHome, pyrimad);
+		this.createSouthDoor(pyrimad, ancientHome);
 
-		this.createWestDoor(admin, slivaOffice);
-		this.createEastDoor(slivaOffice, admin);
+		this.createNorthDoor(pyrimad, underGround);
+		this.createNorthDoor(underGround, burialSite);
 
-		this.createSouthDoor(lab, classroom);
-		this.createNorthDoor(classroom, lab);
+		this.createNorthDoor(burialSite, treasure);
+		this.createSouthDoor(treasure, beach);
+		
+		this.createSouthDoor(beachTI,cave);
+		this.createNorthDoor(cave, beachTI);
+		this.createWestDoor(beachTI, waterFall);
+
+		this.createEastDoor(waterFall, beachTI);
+		this.createNorthDoor(beachTI, jungle);
+
+		this.createSouthDoor(jungle, beachTI);
+		this.createNorthDoor(underGround, burialSite);
+
+		this.createNorthDoor(jungle, waterFall);
+		this.createSouthDoor(waterFall, jungle);
+		
+		this.createEastDoor(waterFall,cave);
+		this.createWestDoor(cave, waterFall);
+		this.createEastDoor(cave, tigerDen);
+
+		this.createWestDoor(tigerDen, cave);
+		this.createSouthDoor(cave, temple);
+
+		this.createWestDoor(temple, undergroundTemple);
+		this.createWestDoor(undergroundTemple, undergroundRoom);
+
+		this.createNorthDoor(undergroundRoom, ancientRuins);
+		this.createEastDoor(ancientRuins, secretRoom);
+		
+		this.createWestDoor(secretRoom,cave);
+		
+		
+		
 	}
 }
