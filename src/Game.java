@@ -18,7 +18,7 @@ public class Game {
 	/** The world where the game takes place. */
 	private World world;
 	/** The room the player character is currently in. */
-	private Room player;
+	private Player player;
 	
 	int score = 0; 
 	int turn = 0;
@@ -29,29 +29,16 @@ public class Game {
 	public Game() {
 		world = new World();
 		// set the starting room
-		player = world.getRoom("outside");
+		player = new Player (world.getRoom("intregation"));
 	}
 	/**
 	 * Prints out the current location and exits.
 	 */
  private void printLocationInformation() {
-	 Writer.println(player.getName() + ":");
-		Writer.println("You are " + player.getDescription());
-		Writer.print("Exits: ");
-		if (player.northExit != null) {
-			Writer.print("north ");
-		}
-		if (player.eastExit != null) {
-			Writer.print("east ");
-		}
-		if (player.southExit != null) {
-			Writer.print("south ");
-		}
-		if (player.westExit != null) {
-			Writer.print("west ");
-		}
-		Writer.println("");
+	 Writer.println(player.getCurrentRoom().toString());
+		
  }
+ 
 
 	/**
 	 * Main play routine. Loops until end of play.
@@ -122,24 +109,12 @@ public class Game {
 
 			// Try to leave current.
 			Door doorway = null;
-			if (direction.equals("north")) {
-				doorway = player.northExit;
-			}
-			if (direction.equals("east")) {
-				doorway = player.eastExit;
-			}
-			if (direction.equals("south")) {
-				doorway = player.southExit;
-			}
-			if (direction.equals("west")) {
-				doorway = player.westExit;
-			}
-
+			doorway=player.getCurrentRoom().getExit(direction);
 			if (doorway == null) {
 				Writer.println("There is no door!");
 			} else {
 				Room newRoom = doorway.getDestination();
-				player = newRoom;
+				player.setCurrentRoom(newRoom);
 				printLocationInformation();
 			}
 		}

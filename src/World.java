@@ -50,58 +50,12 @@ public class World {
 	private void addRoom(Room theRoom) {
 		rooms.put(theRoom.getName().toLowerCase(), theRoom);
 	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param north
-	 *            The room to the north of the originating room.
-	 */
-	private void createNorthDoor(Room from, Room north) {
-		Door northDoor = new Door(north);
-		from.northExit = northDoor;
+	private void createDoor(Room from, String direction, Room to) {
+		Door theDoor = new Door(to);
+		from.setExit(direction, theDoor);
+		
 	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param east
-	 *            The room to the east of the originating room.
-	 */
-	private void createEastDoor(Room from, Room east) {
-		Door eastDoor = new Door(east);
-		from.eastExit = eastDoor;
-	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param south
-	 *            The room to the south of the originating room.
-	 */
-	private void createSouthDoor(Room from, Room south) {
-		Door southDoor = new Door(south);
-		from.southExit = southDoor;
-	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param west
-	 *            The room to the west of the originating room.
-	 */
-	private void createWestDoor(Room from, Room west) {
-		Door westDoor = new Door(west);
-		from.westExit = westDoor;
-	}
+	
 
 	/**
 	 * This method creates all of the individual places in this world and all
@@ -184,6 +138,8 @@ public class World {
 		this.addRoom(secretRoom);
 		this.addRoom(beachFI);
 		this.addRoom(beachTI);
+		
+		this.createDoor(beachTI, "northwest",beachFI);
 		
 
 		// Creating all the doors between the rooms.

@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * Class Room - a room in an adventure game.
  *
@@ -20,15 +22,14 @@ public class Room {
 	private String name;
 	/** The description of this room. */
 	private String description;
+	
+	private HashMap<String, Item> items;
+	
+	private HashMap<String, Door> doors;
+	
+	
+	
 
-	/** This room's north exit, null if none exits. */
-	public Door northExit;
-	/** This room's south exit, null if none exits. */
-	public Door southExit;
-	/** This room's east exit, null if none exits. */
-	public Door eastExit;
-	/** This room's west exit, null if none exits. */
-	public Door westExit;
 
 	/**
 	 * Static initializer.
@@ -48,6 +49,8 @@ public class Room {
 		this.name = name;
 		this.description = description;
 		counter++;
+		items = new HashMap<String,Item>();
+		doors = new HashMap<String, Door>();
 	}
 
 	/**
@@ -75,4 +78,43 @@ public class Room {
 	public static int getCounter() {
 		return counter;
 	}
+	public void addItem(Item theItem) {
+		items.put(theItem.getName(), theItem);
+	}
+		
+	public Item getItems(String itemName) {
+		return items.get(itemName);
+	}
+	
+	public String toString() {
+		StringBuilder SB = new StringBuilder();
+		SB.append(description);
+		SB.append("/n");
+		
+		String temp = name + "\n";
+		temp += "You are in " + description + "\n";
+		//add exits
+		for (String direction: doors.keySet()) {
+			SB.append(direction + " ");
+		}
+		return SB.toString();	
+		
+	}
+	
+	
+		
+	
+	
+	public void setExit(String direction, Door neighbor) {
+		doors.put(direction, neighbor);
+	}
+	
+	public Door getExit(String direction) {
+		return doors.get(direction);		
+	}
+
+	public Room getCurrentRoom() {
+		return getCurrentRoom();
+	}
+	
 }
