@@ -39,6 +39,7 @@ public class Game {
 		
  }
  
+ 
 
 	/**
 	 * Main play routine. Loops until end of play.
@@ -82,7 +83,14 @@ public class Game {
 				goRoom(command);
 			} else if (commandWord.equals("quit")) {
 				wantToQuit = quit(command);
-			} else {
+			} else if (commandWord.equals("look")) {
+				look();
+			}
+			
+			
+			
+			
+			else {
 				Writer.println(commandWord + " is not implemented yet!");
 			}
 		}
@@ -93,6 +101,10 @@ public class Game {
 	// Helper methods for implementing all of the commands.
 	// It helps if you organize these in alphabetical order.
 
+	private void look() {
+		// TODO Auto-generated method stub
+		
+	}
 	/**
 	 * Try to go to one direction. If there is an exit, enter the new room,
 	 * otherwise print an error message.
@@ -101,6 +113,8 @@ public class Game {
 	 *            The command to be processed.
 	 */
 	private void goRoom(Command command) {
+		
+		
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
 			Writer.println("Go where?");
@@ -125,7 +139,6 @@ public class Game {
 	 */
 	private void printGoodbye() {
 		Writer.println("You ended the game with a " + score + " score and you lasted till turn " + turn);
-		Writer.println("I hope you weren't too bored here on the Campus of Kings!");
 		Writer.println("Thank you for playing.  Good bye.");
 	}
 
@@ -135,7 +148,6 @@ public class Game {
 	 */
 	private void printHelp() {
 		Writer.println("You are lost. You are alone. You wander");
-		Writer.println("around at the university.");
 		Writer.println();
 		Writer.println("Your command words are:");
 		Writer.println("   go quit help");
@@ -146,8 +158,8 @@ public class Game {
 	 */
 	private void printWelcome() {
 		Writer.println();
-		Writer.println("Welcome to the Campus of Kings!");
-		Writer.println("Campus of Kings is a new, incredibly boring adventure game.");
+		Writer.println("Welcome Olkahoma Jones");
+		Writer.println("You are searching for the awesome treasure.");
 		Writer.println("Type 'help' if you need help.");
 		Writer.println();
 	}
@@ -168,4 +180,6 @@ public class Game {
 		}
 		return wantToQuit;
 	}
+	
+	
 }

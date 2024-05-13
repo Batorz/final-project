@@ -86,6 +86,8 @@ public class World {
 		Room temple = new Room("Temple", "You exit out of the jungle, there in front of you is a massive temple... you enter");
 		Room insideAlterRoom = new Room("Alter Room", "You walk through cobwebs and see a desk with a odd shape wrapped in cloth on it.");
 		Room cave = new Room("Cave", "Dark damp space where bats are flying over you.");
+		Room caveNI = new Room("Cave", "Dark damp space where bats are flying over you.");
+		Room caveTD = new Room("Cave", "Dark damp space where bats are flying over you.");
 		Room ancientHome = new Room("Ancient Home", "Walking through the desert you see the top of a gray object, you jump in and you land in an old home.");
 		Room pyrimad = new Room("Pyrimad", "A giant structure made of coarse sandstone towering 100 feet high.");
 		Room underGround = new Room("Underground Puzzle", "A room left untouch, it has three alter with plates...");
@@ -138,13 +140,79 @@ public class World {
 		this.addRoom(secretRoom);
 		this.addRoom(beachFI);
 		this.addRoom(beachTI);
+		this.addRoom(caveNI);
+		this.addRoom(caveTD);
+		this.addRoom(pyrimad);
 		
-		this.createDoor(beachTI, "northwest",beachFI);
+		this.createDoor(beachTI, "south",beachFI);
+		this.createDoor(integrationRoom, "left",boilerRoom);
+		this.createDoor(boilerRoom, "Up Stairs",crewQuarters);
+		this.createDoor(crewQuarters, "Down Stairs",boilerRoom);
+		this.createDoor(crewQuarters, "Up Stairs",medBay);
+		this.createDoor(medBay, "left",library);
+		this.createDoor(library, "Down Stairs",crewQuarters);
+		this.createDoor(library, "Up Stairs",poopDeck);
+		this.createDoor(poopDeck, "Up Ladder",bridge);
+		this.createDoor(bridge, "Down Ladder",poopDeck);
+		this.createDoor(poopDeck, "right",boat);
+		this.createDoor(ship, "west",beach);
+		this.createDoor(ship, "southwest",beachTI);
+		this.createDoor(beach, "southeast",beachFI);
+		this.createDoor(beachTI, "northeast",ship);
+		this.createDoor(beach, "east",ship);
+		this.createDoor(beachTI, "northwest",beach);
+		this.createDoor(beach, "south",beachTI);
+		this.createDoor(beach, "north",jungle);
+		this.createDoor(beach, "southwest",caveNI);
+		this.createDoor(jungle, "south",beach);
+		this.createDoor(jungle, "west",river);
+		this.createDoor(river, "east",jungle);
+		this.createDoor(river, "west",lake);
+		this.createDoor(lake, "southeast",ancientCity);
+		this.createDoor(ancientCity, "north",river);
+		this.createDoor(ancientCity, "southeast", temple);
+		this.createDoor(temple, "west", insideAlterRoom);
+		this.createDoor(insideAlterRoom, "east", temple);
+		this.createDoor(temple, "south",caveNI);
+		this.createDoor(beachFI, "southeast", ancientHome);
+		this.createDoor(ancientHome, "northwest", beachFI);
+		this.createDoor(ancientHome, "northeast", pyrimad);
+		this.createDoor(pyrimad, "southwest", ancientHome);
+		this.createDoor(pyrimad, "north", underGround);
+		this.createDoor(underGround, "northwest", burialSite);
+		this.createDoor(burialSite, "north", treasure);
+		this.createDoor(treasure, "southwest", beachFI);
+		this.createDoor(beachTI, "west", waterFall);
+		this.createDoor(waterFall, "east", beachTI);
+		this.createDoor(beachTI, "southwest", jungle);
+		this.createDoor(jungle, "northeast", beachTI);
+		this.createDoor(beachTI, "south", cave);
+		this.createDoor(cave, "north", beachTI);
+		this.createDoor(waterFall, "southeast", jungle);
+		this.createDoor(jungle, "northwest", waterFall);
+		this.createDoor(waterFall, "south", caveTD);
+		this.createDoor(caveTD, "north", waterFall);
+		this.createDoor(caveTD, "northwest", tigerDen);
+		this.createDoor(tigerDen, "southeast", caveTD);
+		this.createDoor(cave, "southwest", temple);
+		this.createDoor(temple, "west", undergroundTemple);
+		this.createDoor(undergroundTemple, "west", undergroundRoom);
+		this.createDoor(undergroundRoom, "north", ancientRuins);
+		this.createDoor(ancientRuins, "east", secretRoom);
+		this.createDoor(secretRoom, "east", cave);
 		
-
+		
+		
+		
+		
+		
+		
+		
+		
 		// Creating all the doors between the rooms.
 		//The code written is the route between the islands no ship because too much. 
 		//As well No north island because too confusing
+		/**
 		this.createWestDoor(ship, beach);
 		this.createEastDoor(beach, ship);
 
@@ -197,7 +265,7 @@ public class World {
 		
 		this.createWestDoor(secretRoom,cave);
 		
-		
+		*/
 		
 	}
 }

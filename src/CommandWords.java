@@ -14,14 +14,20 @@
 public class CommandWords {
 	/** A constant array that holds all valid command words. */
 	private static String[] validCommands;
-
+	
+	
 	/**
 	 * Static block to initialize the fields of CommandWords.
 	 */
 	static {
-		String[] tempCommands = {"go", "quit", "help" };
+		String[] tempCommands = {"go", "quit", "help", "look" };
 		validCommands = tempCommands;
+		String[] moveCommands = {"northwest", "southwest","northeast","southeast","north","west","south","east","left","right","up ladder","down ladder","up stairs","down stairs"};
+		validCommands = moveCommands;
+		String[] playerCommands = {"Inventory", "health", "item"};
+		validCommands = playerCommands;
 	}
+	
 
 	/**
 	 * Check whether a given String is a valid command word.
