@@ -102,7 +102,7 @@ public class World {
 		Room beachTI = new Room("Beach Treasure Island", "beach for treasure island.");
 		Room beachFI = new Room("Beach Forgotten Island", "beach for treasure island.");
 		
-		
+		integrationRoom.addItem(pipe);
 		
 		// Adding all the rooms to the world.
 		this.addRoom(ship);

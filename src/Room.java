@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * Class Room - a room in an adventure game.
@@ -67,7 +69,15 @@ public class Room {
 	 *
 	 * @return The description of this room.
 	 */
-	public String getDescription() {
+	public StringBuilder getDescription() {
+		 StringBuilder description = new StringBuilder();
+	        if (!items.isEmpty()) {
+	            description.append("\nItems in this room:");
+	            for (Entry<String, Item> entry : items.entrySet()) {
+	                description.append("\n- ").append(entry.getKey()).append(": ").append(entry.getValue().getDescription());
+	            }
+	        }
+	        
 		return description;
 	}
 
@@ -101,9 +111,14 @@ public class Room {
 		
 	}
 	
-	
+	public Item removeItem(String itemName) {
+        return items.remove(itemName);
+    }
+
 		
-	
+	public void addItem(String itemName, Item item) {
+        items.put(itemName, item);
+    }
 	
 	public void setExit(String direction, Door neighbor) {
 		doors.put(direction, neighbor);
@@ -116,6 +131,8 @@ public class Room {
 	public Room getCurrentRoom() {
 		return getCurrentRoom();
 	}
+
+	
 
 	
 	

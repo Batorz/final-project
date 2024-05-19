@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
 /**
  * This class is the main class of the "Campus of Kings" application.
  * "Campus of Kings" is a very simple, text based adventure game. Users can walk
@@ -19,10 +22,10 @@ public class Game {
 	private World world;
 	/** The room the player character is currently in. */
 	private Player player;
-	
+	private Scanner scanner;
 	int score = 0; 
 	int turn = 0;
-
+	private HashMap<String, Room> rooms;
 	/**
 	 * Create the game and initialize its internal map.
 	 */
@@ -30,6 +33,7 @@ public class Game {
 		world = new World();
 		// set the starting room
 		player = new Player (world.getRoom("intregation"));
+		 rooms = new HashMap<>();
 	}
 	/**
 	 * Prints out the current location and exits.
@@ -39,7 +43,10 @@ public class Game {
 		
  }
  
- 
+ public String addItem(Room) {
+	 
+ }
+
 
 	/**
 	 * Main play routine. Loops until end of play.
@@ -113,25 +120,36 @@ public class Game {
 	 *            The command to be processed.
 	 */
 	private void goRoom(Command command) {
-		
-		
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			Writer.println("Go where?");
-		} else {
-			String direction = command.getRestOfLine();
+		  // Get user input
+        System.out.print("Enter command: ");
+        String input = scanner.nextLine();
+        
+        
+        // Process command
+        if (input.equals("quit")) {
+            System.out.println("Thanks for playing. Goodbye!");
+        }
+        else {
+            // Check if input is a valid exit direction
+        	if (!command.hasSecondWord()) {
+    			// if there is no second word, we don't know where to go...
+    			Writer.println("Go where?");
+    		} else {
+    			String direction = command.getRestOfLine();
 
-			// Try to leave current.
-			Door doorway = null;
-			doorway=player.getCurrentRoom().getExit(direction);
-			if (doorway == null) {
-				Writer.println("There is no door!");
-			} else {
-				Room newRoom = doorway.getDestination();
-				player.setCurrentRoom(newRoom);
-				printLocationInformation();
-			}
-		}
+    			// Try to leave current.
+    			Door doorway = null;
+    			doorway=player.getCurrentRoom().getExit(direction);
+    			if (doorway == null) {
+    				Writer.println("There is no door!");
+    			} else {
+    				Room newRoom = doorway.getDestination();
+    				player.setCurrentRoom(newRoom);
+    				printLocationInformation();
+    			}
+    		}
+        	
+        }
 	}
 
 	/**
@@ -180,6 +198,7 @@ public class Game {
 		}
 		return wantToQuit;
 	}
+	
 	
 	
 }
